@@ -5,8 +5,8 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'MicroEscrow - P2P Escrow',
-  description: 'Simple escrow with arbiter on Base and Stacks',
+  title: 'MicroEscrow',
+  description: 'Trustless escrow for secure transactions',
 }
 
 export default function RootLayout({
