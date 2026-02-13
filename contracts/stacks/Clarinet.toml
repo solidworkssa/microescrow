@@ -1,12 +1,12 @@
 [project]
-name = "voting"
-requirements = []
+name = "microescrow"
+description = "Unique voting contract for project 04"
+authors = ["solidworkssa"]
+telemetry = false
 cache_dir = ".cache"
 
-[contracts.voting]
-path = "contracts/voting.clar"
-clarity_version = 2
+[contracts.microescrow]
+path = "contracts/microescrow.clar"
 
-[repl]
-costs_version = 2
-parser_version = 2
+[repl.analysis]
+passes = ["check_checker"]
