@@ -2,8 +2,11 @@
 pragma solidity ^0.8.20;
 
 /// @title MicroEscrow Contract
+/// @author solidworkssa
 /// @notice Trustless escrow for secure small transactions.
 contract MicroEscrow {
+    string public constant VERSION = "1.0.0";
+
 
     enum State { AWAITING_PAYMENT, AWAITING_DELIVERY, COMPLETED, REFUNDED }
     
