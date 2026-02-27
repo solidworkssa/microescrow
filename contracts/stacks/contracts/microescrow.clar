@@ -32,9 +32,9 @@
         (
             (id (var-get next-escrow-id))
         )
-        (try! (stx-transfer? amount tx-sender (as-contract tx-sender)))
+        (try! (stx-transfer? amount contract-caller (as-contract contract-caller)))
         (map-set escrows id {
-            payer: tx-sender,
+            payer: contract-caller,
             payee: payee,
             amount: amount,
             state: "awaiting-delivery"
@@ -49,9 +49,9 @@
         (
             (escrow (unwrap! (map-get? escrows id) (err u404)))
         )
-        (asserts! (is-eq tx-sender (get payer escrow)) (err u401))
+        (asserts! (is-eq contract-caller (get payer escrow)) (err u401))
         (asserts! (is-eq (get state escrow) "awaiting-delivery") (err u400))
-        (try! (as-contract (stx-transfer? (get amount escrow) tx-sender (get payee escrow))))
+        (try! (as-contract (stx-transfer? (get amount escrow) contract-caller (get payee escrow))))
         (map-set escrows id (merge escrow {state: "completed"}))
         (ok true)
     )
