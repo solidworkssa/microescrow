@@ -44,5 +44,9 @@
     "p2p",
     "payments",
     "trust"
-  ]
+  ],
+  "dependencies": {
+    "@winsznx/sdk": "0.1.0",
+    "@winsznx/react": "0.1.0"
+  }
 }
